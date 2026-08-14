@@ -1,0 +1,32 @@
+[
+  {
+    "id": "gsm8k_001",
+    "prompt": "Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per egg. How much in dollars does she make every day at the farmers' market?",
+    "chosen": "<thought>\nStep 1: Calculate the total daily egg production: 16 eggs/day.\nStep 2: Calculate daily egg consumption: 3 eggs (breakfast) + 4 eggs (muffins) = 7 eggs.\nStep 3: Calculate remaining eggs to sell: 16 - 7 = 9 eggs.\nStep 4: Calculate total daily revenue at $2 per egg: 9 eggs * $2/egg = $18.\n</thought>\n<answer>18</answer>",
+    "rejected": "<thought>\nStep 1: Janet gets 16 eggs.\nStep 2: She eats 3 eggs, leaving 16 - 3 = 13 eggs.\nStep 3: She bakes with 4 eggs, but muffin eggs are already accounted for in breakfast.\nStep 4: 13 eggs * $2 = $26.\n</thought>\n<answer>26</answer>"
+  },
+  {
+    "id": "gsm8k_002",
+    "prompt": "A robe takes 2 bolts of blue fiber and half that much white fiber. How many bolts in total does it take to make 3 robes?",
+    "chosen": "<thought>\nStep 1: Determine fiber needed for 1 robe:\n- Blue fiber: 2 bolts\n- White fiber: 2 / 2 = 1 bolt\nTotal fiber per robe = 2 + 1 = 3 bolts.\nStep 2: Calculate total fiber for 3 robes: 3 robes * 3 bolts/robe = 9 bolts.\n</thought>\n<answer>9</answer>",
+    "rejected": "<thought>\nStep 1: 1 robe needs 2 bolts blue fiber and half white fiber = 1 bolt.\nStep 2: Total for 1 robe is 2 + 1 = 3 bolts.\nStep 3: For 3 robes: 3 + 3 = 6 bolts.\n</thought>\n<answer>6</answer>"
+  },
+  {
+    "id": "gsm8k_003",
+    "prompt": "Josh decides to try flipping a house. He buys a house for $80,000 and spends $50,000 on renovations. If he sells the house for 150% of his total investment, how much profit does he make in dollars?",
+    "chosen": "<thought>\nStep 1: Calculate total investment: purchase price ($80,000) + renovation costs ($50,000) = $130,000.\nStep 2: Calculate selling price: 150% of $130,000 = 1.5 * $130,000 = $195,000.\nStep 3: Calculate net profit: selling price ($195,000) - total investment ($130,000) = $65,000.\n</thought>\n<answer>65000</answer>",
+    "rejected": "<thought>\nStep 1: Total investment is $80,000 + $50,000 = $130,000.\nStep 2: Selling price is 150% of $80,000 = $120,000.\nStep 3: Profit is $120,000 - $50,000 = $70,000.\n</thought>\n<answer>70000</answer>"
+  },
+  {
+    "id": "gsm8k_004",
+    "prompt": "Every day, Wendi feeds each of her chickens three cups of mixed chicken feed, containing seeds, mealworms and vegetables to help keep them healthy. She gives the chickens their feed in three separate meals. In the morning, she gives her flock of chickens 15 cups of feed. In the afternoon, she gives them another 25 cups of feed. If she gives the chickens 20 cups of feed in the evening, how many chickens are in the flock?",
+    "chosen": "<thought>\nStep 1: Calculate total cups of feed given in a day: 15 cups (morning) + 25 cups (afternoon) + 20 cups (evening) = 60 cups.\nStep 2: Calculate feed consumption per chicken per day: 3 cups/chicken.\nStep 3: Calculate number of chickens: 60 cups / 3 cups per chicken = 20 chickens.\n</thought>\n<answer>20</answer>",
+    "rejected": "<thought>\nStep 1: Total food = 15 + 25 + 20 = 60 cups.\nStep 2: Each chicken gets 3 cups per meal, so 3 * 3 = 9 cups per day.\nStep 3: 60 / 9 = 6.6 chickens, rounding to 7.\n</thought>\n<answer>7</answer>"
+  },
+  {
+    "id": "gsm8k_005",
+    "prompt": "A bakery produces 120 loaves of bread every morning. 40% are sourdough, 35% are rye, and the rest are whole wheat. How many loaves of whole wheat bread are baked each morning?",
+    "chosen": "<thought>\nStep 1: Calculate the percentage for whole wheat: 100% - 40% - 35% = 25%.\nStep 2: Calculate the number of whole wheat loaves: 25% of 120 = 0.25 * 120 = 30 loaves.\n</thought>\n<answer>30</answer>",
+    "rejected": "<thought>\nStep 1: Sourdough is 120 * 0.4 = 48 loaves.\nStep 2: Rye is 120 * 0.35 = 42 loaves.\nStep 3: Whole wheat is 120 - 48 = 72 loaves.\n</thought>\n<answer>72</answer>"
+  }
+]
