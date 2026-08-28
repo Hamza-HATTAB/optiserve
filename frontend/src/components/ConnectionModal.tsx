@@ -116,7 +116,7 @@ export const ConnectionModal: React.FC<ConnectionModalProps> = ({
                 type="text"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                placeholder="http://localhost:8000 or https://tunnel.optiserve.ai"
+                placeholder="http://localhost:8001 or https://tunnel.optiserve.ai"
                 className="flex-1 rounded-lg bg-dark-900 border border-white/10 px-3 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
               />
               <button

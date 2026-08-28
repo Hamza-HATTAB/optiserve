@@ -16,7 +16,7 @@ import { ConnectionMode, GpuTelemetry, QuantBenchmark, SpeculativeStep } from "@
 
 export default function StudioPage() {
   const [connectionMode, setConnectionMode] = useState<ConnectionMode>("simulator");
-  const [backendUrl, setBackendUrl] = useState<string>("http://localhost:8000");
+  const [backendUrl, setBackendUrl] = useState<string>("http://localhost:8001");
   const [isBackendConnected, setIsBackendConnected] = useState<boolean>(false);
   const [isConnectModalOpen, setIsConnectModalOpen] = useState<boolean>(false);
 

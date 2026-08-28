@@ -27,13 +27,13 @@ benchmark:
 	$(PYTHON) -m optiserve.benchmarks.quant_bakeoff
 
 serve:
-	$(UVICORN) optiserve.api.server:app --host 0.0.0.0 --port 8000 --reload
+	$(UVICORN) optiserve.api.server:app --host 0.0.0.0 --port 8001 --reload
 
 dev:
 	cd frontend && npm run dev
 
 tunnel:
-	cloudflared tunnel --url http://localhost:8000
+	cloudflared tunnel --url http://localhost:8001
 
 reproduce:
 	$(PYTHON) -m optiserve.benchmarks.latency_profiler
