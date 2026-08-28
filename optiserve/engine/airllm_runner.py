@@ -7,7 +7,7 @@ from typing import Dict, List, Optional, Tuple
 
 import torch
 import torch.nn as nn
-from optiserve.config import settings
+from optiserve.config import PROJECT_ROOT, settings
 
 
 @dataclass
@@ -145,7 +145,7 @@ class AirLLMRunner:
         self.device = torch.device(device if torch.cuda.is_available() else "cpu")
         self.dtype = dtype
 
-        self.cache_dir = cache_dir or (settings.PROJECT_ROOT / "data" / "cache" / "airllm_shards")
+        self.cache_dir = cache_dir or (PROJECT_ROOT / "data" / "cache" / "airllm_shards")
         self.disk_manager = ShardedLayerDiskManager(
             self.cache_dir, hidden_dim, num_heads, intermediate_dim
         )
