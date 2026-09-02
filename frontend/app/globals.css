@@ -1,26 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 7 9 14;
-    --foreground: 248 250 252;
-  }
-  
-  body {
-    background-color: #07090e;
-    color: #f1f5f9;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  }
+:root {
+  --background: #07090e;
+  --foreground: #f8fafc;
 }
 
-/* Glassmorphism devtool card utility */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  background-image: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.06) 0%, transparent 60%),
+                    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+}
+
+/* Crisp Elevated Glassmorphic Card */
 .glass-panel {
-  background: rgba(13, 17, 23, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 22, 33, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.5);
 }
 
 .glass-panel-hover {
@@ -28,9 +33,9 @@
 }
 
 .glass-panel-hover:hover {
-  background: rgba(19, 25, 34, 0.85);
-  border-color: rgba(16, 185, 129, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  background: rgba(19, 28, 42, 0.92);
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 8px 32px -4px rgba(16, 185, 129, 0.15);
 }
 
 /* Custom scrollbars */
