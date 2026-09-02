@@ -84,7 +84,7 @@ export const SpeculativeVisualizer: React.FC<SpeculativeVisualizerProps> = ({ st
               Rejection Sampling Verification Tree (Cycle #{selectedStepIdx + 1})
             </span>
             <span className="text-[11px] text-slate-400 font-mono">
-              Criterion: u &le; min(1, p/q)
+              Criterion: u ≤ min(1, p/q)
             </span>
           </div>
 
@@ -135,7 +135,7 @@ export const SpeculativeVisualizer: React.FC<SpeculativeVisualizerProps> = ({ st
 
                   {!dec.accepted && dec.resampled_token_id !== undefined && (
                     <div className="mt-2.5 pt-2 border-t border-amber-500/30 flex items-center justify-between text-amber-300 font-sans">
-                      <span className="text-xs font-semibold">Resampled from (p - q)&plus;:</span>
+                      <span className="text-xs font-semibold">Resampled from (p - q)⁺:</span>
                       <strong className="font-mono font-bold text-sm text-amber-200">
                         #{dec.resampled_token_id}
                       </strong>
