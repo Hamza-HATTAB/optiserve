@@ -7,6 +7,8 @@
 [![Next.js 14](https://img.shields.io/badge/Next.js-14.2-black?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+🌐 **Live Interactive Production Studio:** [**https://optiserve.vercel.app**](https://optiserve.vercel.app) *(100% Public Access • Standalone Simulator Mode)*
+
 OptiServe is a production-grade deep learning inference and model optimization engine engineered for consumer GPU constraints (local **NVIDIA RTX 4060 8GB VRAM** with a strict $<6.8$ GB live memory ceiling). It achieves **$1.92\times$ wall-clock speculative acceleration with zero distribution shift**, executes 70B teacher models via **AirLLM NVMe layer-wise streaming**, and evaluates a comprehensive **5-Way Quantization Bake-Off** (AWQ, GPTQ, GGUF, FP8, FP16).
 
 ---
