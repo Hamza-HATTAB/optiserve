@@ -2,10 +2,9 @@
 ## End-to-End PyTorch Reasoning Distillation, Quantization Benchmarking, AirLLM Layer-Wise Streaming, and Speculative Decoding Engine
 
 **Author:** Hamza Riadh Hattab  
-**Academic Background:** 4th-Year AI Computer Science Engineering Student at USTHB (Algiers, Algeria) — Graduating June 2028 (5-Year State Engineering Degree; Canadian Academic Equivalency: BSc + MSc in Computer Science)  
-**Target Roles:** Remote AI/ML Systems Engineer / Inference Specialist / Applied ML Engineer (Toronto / Montreal AI Scale-Ups: Cohere, Untether AI, Tenstorrent, CentML, Ideogram, Coveo)  
-**Legal Framework:** Remote B2B Independent Contractor (via Deel / Remote.com) with 4-Hour Daily Overlap with Eastern Standard Time (EST)  
-**Hardware Specification:** Local NVIDIA GeForce RTX 4060 Laptop GPU (8,188 MiB VRAM), Fast NVMe SSD Storage, Linux OS  
+**Affiliation:** AI Engineering, USTHB (Algiers, Algeria)  
+**Hardware Specification:** NVIDIA GeForce RTX 4060 Laptop GPU (8,188 MiB VRAM), Fast NVMe SSD Storage, Linux OS  
+**Evaluation Models:** Qwen2.5-7B, Qwen2.5-1.5B, Llama-3.3-70B (AirLLM)  
 
 ---
 
