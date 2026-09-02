@@ -163,18 +163,14 @@ The FastAPI production microservice (`optiserve/api/server.py`) incorporates:
 
 ---
 
-## 7. CANADIAN AI STARTUP INTERVIEW DEFENSE GUIDE
+## 7. PRODUCTION SERVING TRADE-OFFS & FAQS
 
-This project directly maps to technical interview criteria at Canada's premier AI scale-ups:
+### Low-Latency Inference Serving
+Serving multi-turn reasoning and command models at scale requires reducing per-token memory bandwidth bottlenecks. OptiServe implements Leviathan rejection sampling to guarantee that our 1.92x speculative speedup produces zero output distribution divergence, while using DPO directly on teacher rationales to preserve CoT reasoning capability in a 1.5B student.
 
-### Cohere (Toronto)
-* **Relevance:** Multi-stage distillation, reasoning alignment, and low-latency inference serving.
-* **Defense Focus:** "At Cohere, serving multi-turn reasoning and command models at scale requires reducing per-token memory bandwidth bottlenecks. In OptiServe, I implemented Leviathan rejection sampling to guarantee that our 1.92x speculative speedup produces zero output distribution divergence, while using DPO directly on teacher rationales to preserve CoT reasoning capability in a 1.5B student."
+### Quantization Pipeline Stalls vs Compute Rooflines
+On spatial compute architectures, memory access energy dwarfs compute energy. On Ada Lovelace tensor cores, FP8 eliminates dequantization pipeline stalls while halving VRAM requirements compared to FP16, delivering higher effective throughput than 4-bit integer formats.
 
-### Untether AI & Tenstorrent (Toronto)
-* **Relevance:** Custom integer/float quantization formats, hardware roofline modeling, and memory bandwidth constraints.
-* **Defense Focus:** "Untether and Tenstorrent design spatial compute architectures where memory access energy dwarfs compute energy. In OptiServe, I profiled NVMe-to-PCIe-to-VRAM bandwidth and benchmarked FP8 vs AWQ 4-bit, proving that on Ada Lovelace tensor cores, FP8 eliminates dequantization pipeline stalls while halving VRAM requirements."
+### Dynamic Continuous Batching & Memory Safety Bounds
+Serving efficiency hinges on eliminating static batching bubbles. OptiServe implements an iteration-level scheduler with dynamic prefill/decode insertion that enforces an invariant $<6.8$ GB memory ceiling on an 8GB GPU host, preventing out-of-memory kernel aborts while saturating tensor core utilization.
 
-### CentML & Ideogram (Toronto)
-* **Relevance:** Continuous dynamic batching, serving compiler optimizations, and GPU memory safety ceilings.
-* **Defense Focus:** "At CentML, serving efficiency hinges on eliminating static batching bubbles. In OptiServe, I implemented an iteration-level scheduler with dynamic prefill/decode insertion that enforces an invariant $<6.8$ GB memory ceiling on an 8GB RTX 4060, guaranteeing zero CUDA OOMs while saturating tensor core utilization."

@@ -1,4 +1,4 @@
-# OptiServe (DistillFlow) ⚡
+# OptiServe (DistillFlow)
 ### End-to-End PyTorch Reasoning Distillation, Quantization Benchmarking, AirLLM Layer-Wise Streaming, and Speculative Decoding Engine
 
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.14%2Bcu130-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
@@ -7,13 +7,13 @@
 [![Next.js 14](https://img.shields.io/badge/Next.js-14.2-black?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-🌐 **Live Interactive Production Studio:** [**https://optiserve.vercel.app**](https://optiserve.vercel.app) *(100% Public Access • Standalone Simulator Mode)*
+**Live Production Studio:** [**https://optiserve.vercel.app**](https://optiserve.vercel.app) *(100% Public Access • Standalone Simulator Mode)*
 
 OptiServe is a production-grade deep learning inference and model optimization engine engineered for consumer GPU constraints (local **NVIDIA RTX 4060 8GB VRAM** with a strict $<6.8$ GB live memory ceiling). It achieves **$1.92\times$ wall-clock speculative acceleration with zero distribution shift**, executes 70B teacher models via **AirLLM NVMe layer-wise streaming**, and evaluates a comprehensive **5-Way Quantization Bake-Off** (AWQ, GPTQ, GGUF, FP8, FP16).
 
 ---
 
-## 🏗️ Architectural Overview
+## Architectural Overview
 
 ```
 THE OPTISERVE INFERENCE PIPELINE
@@ -43,12 +43,12 @@ THE OPTISERVE INFERENCE PIPELINE
 └── 6. Bespoke Next.js 14 Interactive Studio
     ├── Speculative decoding token-by-token visualizer
     ├── Interactive Pareto frontier charts
-    └── Dual-mode: Standalone Simulator (for recruiters) & Live GPU (Cloudflare Tunnel)
+    └── Dual-mode: Standalone Simulator & Live GPU (Cloudflare Tunnel)
 ```
 
 ---
 
-## 📊 Empirical 5-Way Quantization Bake-Off Matrix
+## Empirical 5-Way Quantization Bake-Off Matrix
 
 Measured directly on the local **NVIDIA GeForce RTX 4060 Laptop GPU (8GB VRAM)**:
 
@@ -58,12 +58,12 @@ Measured directly on the local **NVIDIA GeForce RTX 4060 Laptop GPU (8GB VRAM)**
 | **AWQ (4-bit)** | 4,118.0 | 27.1 | 55.1 | 162.4 | 16.5 | 60.6 | 5.86 | 73.6 | Near-optimal INT4 |
 | **GPTQ (4-bit)** | 3,976.0 | 29.0 | 58.9 | 173.6 | 17.7 | 56.5 | 5.92 | 72.9 | Lowest VRAM Footprint |
 | **GGUF (Q4_K_M)** | 4,544.0 | 31.8 | 64.6 | 190.4 | 19.4 | 51.5 | 5.89 | 73.2 | CPU/GPU Portable |
-| **FP8 (E4M3)** | **5,120.0** | **22.4** | **45.6** | **134.4** | **13.7** | **73.0** | **5.73** | **74.4** | ⚡ **PARETO WINNER (SPEED)** |
-| **AirLLM 70B** | **2,150.0** | **1,250.0** | **1,840.0** | **3,450.0** | **512.0** | **2.0** | **5.23** | **84.2** | 🧠 **PARETO WINNER (ACCURACY)** |
+| **FP8 (E4M3)** | **5,120.0** | **22.4** | **45.6** | **134.4** | **13.7** | **73.0** | **5.73** | **74.4** | **PARETO WINNER (SPEED)** |
+| **AirLLM 70B** | **2,150.0** | **1,250.0** | **1,840.0** | **3,450.0** | **512.0** | **2.0** | **5.23** | **84.2** | **PARETO WINNER (ACCURACY)** |
 
 ---
 
-## 🚀 Quickstart & Reproduction
+## Quickstart & Reproduction
 
 ### 1. Prerequisites
 - Python 3.11 with NVIDIA GPU drivers and CUDA 12/13
@@ -99,39 +99,28 @@ make dev
 
 ---
 
-## 📖 Deep Technical Report & Interview Defense
+## Technical Report & Specifications
 
 For the complete 30+ page equivalent systems whitepaper covering:
 - Leviathan modified rejection sampling proofs
 - DPO derivation and closed-form implicit reward bounds
 - Hardware roofline models and NVMe/PCIe bandwidth profiling
-- Canadian AI startup interview defense guide (Cohere, Untether AI, Tenstorrent, CentML, Ideogram, Coveo)
 
 See [TECHNICAL_REPORT.md](TECHNICAL_REPORT.md).
 
 ---
 
-## 👤 Author & Candidate Profile
-
-* **Candidate:** Hamza Riadh Hattab
-* **Status:** 4th-Year AI Computer Science Engineering Student at USTHB (Algiers, Algeria) — Graduating **June 2028** (5-Year State Engineering Degree; Canadian Academic Equivalency: BSc + MSc in Computer Science)
-* **Target Roles:** Remote AI/ML Systems Engineer / Inference Specialist / Applied ML Engineer (Toronto / Montreal)
-* **Contract Path:** Remote B2B Independent Contractor (via Deel, Remote.com) with 4-hour daily overlap with EST
-* **Portfolio Precedent:** [Warrant](https://github.com/hamzahattab/warrant) — Attributed RAG verification agent with calibrated DeBERTa NLI and LangGraph (37 automated tests).
-
----
-
-## 📜 License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-## 🌐 Public Vercel Deployment Guide
+## Vercel Deployment Guide
 
 To deploy the interactive Next.js 14 Devtool Studio to Vercel with 100% public access (no login walls or SSO barriers):
 
 1. **Import Repository:** In [Vercel Dashboard](https://vercel.com/dashboard), click **Add New Project** and select `Hamza-HATTAB/optiserve`.
 2. **Configure Root Directory:** Set the Root Directory to `frontend`.
 3. **Framework Preset:** Select `Next.js` (detected automatically).
-4. **Disable Deployment Protection:** In Project Settings -> **Deployment Protection**, ensure Vercel Authentication is toggled **OFF** so external technical hiring managers and recruiters can freely test the studio 24/7.
+4. **Disable Deployment Protection:** In Project Settings -> **Deployment Protection**, ensure Vercel Authentication is toggled **OFF** for public access to the interactive telemetry studio.

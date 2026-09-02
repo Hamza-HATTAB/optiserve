@@ -79,12 +79,12 @@ export const ParetoFrontierChart: React.FC<ParetoFrontierChartProps> = ({ benchm
                   <span className="font-sans font-bold text-sm text-white">{b.format_name}</span>
                   {isFP8 && (
                     <span className="rounded-md bg-emerald-500/20 px-2 py-0.5 text-xs font-bold text-emerald-300 border border-emerald-500/40">
-                      ⚡ PARETO WINNER (SPEED)
+                      PARETO WINNER (SPEED)
                     </span>
                   )}
                   {isAirLLM && (
                     <span className="rounded-md bg-purple-500/20 px-2 py-0.5 text-xs font-bold text-purple-300 border border-purple-500/40">
-                      🧠 PARETO WINNER (ACCURACY)
+                      PARETO WINNER (ACCURACY)
                     </span>
                   )}
                 </div>
