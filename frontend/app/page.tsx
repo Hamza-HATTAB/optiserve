@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
-import { HardwareTelemetryBar } from "@/components/HardwareTelemetryBar";
-import { SpeculativeVisualizer } from "@/components/SpeculativeVisualizer";
-import { ParetoFrontierChart } from "@/components/ParetoFrontierChart";
+import { SpeculativeTreeCanvas } from "@/components/SpeculativeTreeCanvas";
+import { LayerStreamingVisualizer } from "@/components/LayerStreamingVisualizer";
 import { LiveInferenceConsole } from "@/components/LiveInferenceConsole";
+import { ParetoFrontierChart } from "@/components/ParetoFrontierChart";
 import { ConnectionModal } from "@/components/ConnectionModal";
 import {
   MOCK_BENCHMARKS,
@@ -22,12 +22,13 @@ export default function StudioPage() {
 
   const [benchmarks] = useState<QuantBenchmark[]>(MOCK_BENCHMARKS);
   const [speculativeSteps] = useState<SpeculativeStep[]>(MOCK_SPECULATIVE_STEPS);
+  const [activeCycleIdx, setActiveCycleIdx] = useState<number>(0);
 
   const [gpuTelemetry, setGpuTelemetry] = useState<GpuTelemetry>({
     gpu_name: "NVIDIA GeForce RTX 4060 Laptop GPU",
     vram_total_mb: 8188.0,
-    vram_used_mb: 4118.0,
-    vram_free_mb: 4070.0,
+    vram_used_mb: 2150.0,
+    vram_free_mb: 6038.0,
     temperature_c: 44,
     system_load_pct: 18.5,
   });
@@ -36,13 +37,13 @@ export default function StudioPage() {
   const [outputStream, setOutputStream] = useState<string>("");
   const [inferenceTelemetry, setInferenceTelemetry] = useState({
     ttft_ms: 18.4,
-    itl_ms: 14.2,
-    tps: 70.4,
+    itl_ms: 13.8,
+    tps: 72.4,
     speedup: 1.92,
     tokens_count: 0,
   });
 
-  // check backend status on mount
+  // Check backend health on mount
   useEffect(() => {
     const checkBackend = async () => {
       try {
@@ -69,7 +70,6 @@ export default function StudioPage() {
     setOutputStream("");
 
     if (connectionMode === "live" && isBackendConnected) {
-      // live SSE streaming from local RTX 4060 daemon
       try {
         const res = await fetch(`${backendUrl}/api/v1/stream`, {
           method: "POST",
@@ -103,13 +103,12 @@ export default function StudioPage() {
           }
         }
       } catch (err) {
-        // fallback
         setOutputStream("Error streaming from GPU backend. Reverting to simulator.");
       } finally {
         setIsGenerating(false);
       }
     } else {
-      // standalone simulation mode for 100% public Vercel access
+      // Standalone simulation mode for 100% public Vercel access
       const matching = MOCK_TRAJECTORIES.find((t) => t.prompt === prompt);
       const fullText = matching ? matching.chosen : MOCK_TRAJECTORIES[0].chosen;
 
@@ -117,7 +116,7 @@ export default function StudioPage() {
       let currentText = "";
 
       for (let i = 0; i < words.length; i++) {
-        await new Promise((resolve) => setTimeout(resolve, speculative ? 25 : 50));
+        await new Promise((resolve) => setTimeout(resolve, speculative ? 25 : 55));
         currentText += (i === 0 ? "" : " ") + words[i];
         setOutputStream(currentText);
       }
@@ -135,7 +134,7 @@ export default function StudioPage() {
   };
 
   return (
-    <div className="min-h-screen bg-dark-950 text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-[#040508] text-slate-100 flex flex-col selection:bg-cyan-500/20 selection:text-cyan-300">
       <Header
         connectionMode={connectionMode}
         onOpenConnectModal={() => setIsConnectModalOpen(true)}
@@ -143,21 +142,25 @@ export default function StudioPage() {
       />
 
       <main className="flex-1 mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 space-y-6">
-        {/* Hardware Status Strip */}
-        <HardwareTelemetryBar telemetry={gpuTelemetry} />
+        {/* HERO: Full-Bleed 3D Speculative Decoding Tree Visualizer */}
+        <SpeculativeTreeCanvas
+          steps={speculativeSteps}
+          activeCycleIdx={activeCycleIdx}
+          onSelectCycle={(idx) => setActiveCycleIdx(idx)}
+        />
 
-        {/* Speculative Visualizer & Live Inference Grid */}
+        {/* SPLIT STUDIO: High-Throughput Live Inference & AirLLM Layer Streaming */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <SpeculativeVisualizer steps={speculativeSteps} />
           <LiveInferenceConsole
             onRunInference={handleRunInference}
             isGenerating={isGenerating}
             outputStream={outputStream}
             telemetry={inferenceTelemetry}
           />
+          <LayerStreamingVisualizer />
         </div>
 
-        {/* The 5-Way Quantization Bake-Off */}
+        {/* MULTI-DIMENSIONAL PARETO FRONTIER */}
         <ParetoFrontierChart benchmarks={benchmarks} />
       </main>
 
@@ -174,7 +177,7 @@ export default function StudioPage() {
       />
 
       <footer className="border-t border-white/5 py-6 text-center text-xs text-slate-500">
-        OptiServe Engine v0.1.0 • Built with PyTorch, CUDA, FastAPI & Next.js 14 • Hamza Hattab
+        OptiServe Engine v0.1.0 &bull; Built with PyTorch, CUDA, Three.js, FastAPI &amp; Next.js 14 &bull; Hamza Hattab
       </footer>
     </div>
   );
