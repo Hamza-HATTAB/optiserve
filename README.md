@@ -122,3 +122,14 @@ See [TECHNICAL_REPORT.md](TECHNICAL_REPORT.md).
 ## 📜 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+## 🌐 Public Vercel Deployment Guide
+
+To deploy the interactive Next.js 14 Devtool Studio to Vercel with 100% public access (no login walls or SSO barriers):
+
+1. **Import Repository:** In [Vercel Dashboard](https://vercel.com/dashboard), click **Add New Project** and select `Hamza-HATTAB/optiserve`.
+2. **Configure Root Directory:** Set the Root Directory to `frontend`.
+3. **Framework Preset:** Select `Next.js` (detected automatically).
+4. **Disable Deployment Protection:** In Project Settings -> **Deployment Protection**, ensure Vercel Authentication is toggled **OFF** so external technical hiring managers and recruiters can freely test the studio 24/7.
